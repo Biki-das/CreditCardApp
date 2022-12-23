@@ -1,4 +1,7 @@
 import './style.css'
+import masterCardImage from './Assests/icons8-mastercard-logo-48.png'
+
+
 
 const cardNumberText = document.querySelector("#card-num")
 const cardNumberInput = document.querySelector("#card-number-input")
@@ -68,7 +71,7 @@ continueBtn.addEventListener("click",formReset)
 var cleave = new Cleave('#card-number-input', {
     creditCard: true,
     onCreditCardTypeChanged: function (type) {
-        type === "mastercard" ? (masterCardLogo.classList.remove("hidden"), (cardLogo.src="/Assests/icons8-mastercard-logo-48.png")) : (masterCardLogo.classList.add("hidden"), (cardLogo.src="Assests\card-logo.svg"))
+        type === "mastercard" ? (masterCardLogo.classList.remove("hidden"), (cardLogo.src=masterCardImage)) : (masterCardLogo.classList.add("hidden"), (cardLogo.src="../Assests/card-logo.svg"))
         type === "visa" ? (visaLogo.classList.remove("hidden"), (cardLogo.src="/Assests/icons8-visa-48.png")) : visaLogo.classList.add("hidden")
         type === "discover" ? (discoverLogo.classList.remove("hidden"), (cardLogo.src="/Assests/icons8-discover-card-48.png")) : discoverLogo.classList.add("hidden")
         type === "amex" ? (amexLogo.classList.remove("hidden"), (cardLogo.src="/Assests/icons8-american-express-48.png")) : amexLogo.classList.add("hidden")
