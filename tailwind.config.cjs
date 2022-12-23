@@ -12,12 +12,26 @@ module.exports = {
         "veryDarkViolet": "hsl(278, 68%, 11%)"
       },
       animation: {
-       slidedown: "slidedown 1s linear"
+       slidedown: "slidedown 1s linear",
+       shake: "shake 0.5s linear"
       },
       keyframes: {
         slidedown:{
            "0%": { transform: "translateY(-100%)", opacity: "0" },
           "100%": { opacity: "1", transform: "none" },
+        },
+        shake:{
+          "0%"  : { transform: "translate(1px, 1px)"   ,rotate:"0" },
+          "10%" : { transform: "translate(-1px, -2px)" ,rotate:"1" },
+          "20%" : { transform: "translate(-3px, 0px)"  ,rotate:"1" },
+          "30%" : { transform: "translate(3px, 2px)"   ,rotate:"0" },
+          "40%" : { transform: "translate(1px, -1px)"  ,rotate:"1" },
+          "50%" : { transform: "translate(-1px, 2px)"  ,rotate:"-1"},
+          "60%" : { transform: "translate(-3px, 1px)"  ,rotate:"0" },
+          "70%" : { transform: "translate(3px, 1px)"   ,rotate:"-1"},
+          "80%" : {transform:  "translate(-1px, -1px)" ,rotate:"1" },
+          "90%" : { transform: "translate(1px, 2px)"   ,rotate:"0" },
+          "100%": { transform: "translate(1px, -2px)" ,rotate:"-1" },
         }
       }
     },

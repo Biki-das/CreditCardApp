@@ -95,10 +95,13 @@ cardNumValue = e.target.value
 cardNumberText.textContent = cardNumValue
 if(e.target.value === ""){
     cardNumberText.textContent = "0000 0000 0000 0000"
+    cardNumberInput.classList.remove("animate-shake")
+    cardNumberInput.style = null
 }
 
 else if(e.target.value !== ""){
     cardNumberBlankErrText.classList.add("hidden")
+    cardNumberInput.style = null
 }
 
 getCardDetails()
@@ -116,7 +119,7 @@ if(regNamePattern.test(e.target.value)){
     cardNameErrText.classList.remove("hidden")
 }
 
-!regNamePattern.test(cardNameValue) ? cardNameInput.style.border = "1px solid red" : cardNameInput.style.border=""
+!regNamePattern.test(cardNameValue) ? (cardNameInput.style.border = "1px solid red", cardNameInput.classList.add("animate-shake"))  : (cardNameInput.style.border="",cardNameInput.classList.remove("animate-shake"))
 
 
 
@@ -124,6 +127,7 @@ if(cardNameValue === ""){
     cardNameText.textContent = "JANE APPLESEED"
     cardNameErrText.classList.add("hidden")
     cardNameInput.style = null
+    cardNameInput.classList.remove("animate-shake")
 }
 
 else if(cardNameValue !== ""){
@@ -144,12 +148,14 @@ function cardCvvInputFunc(e){
     cvvErrText.classList.remove("hidden")
  }
 
- !cvvPattern.test(e.target.value) ? cvvTextInput.style.border = "1px solid red" : cvvTextInput.style.border = ""
+ !cvvPattern.test(e.target.value) ? (cvvTextInput.style.border = "1px solid red", cvvTextInput.classList.add("animate-shake")) : (cvvTextInput.style.border = "", cvvTextInput.classList.remove("animate-shake"))
  
  if(cardCvvValue === ""){
     cvvText.textContent = "000"
     cvvErrText.classList.add("hidden")
+    cvvTextInput.classList.remove("animate-shake")
     cvvTextInput.style = null
+
  }
  else if(cardCvvValue !== ""){
     cvvBlankErrText.classList.add("hidden")
@@ -164,8 +170,11 @@ function cardMonthInputFunc(e) {
     parseFloat(e.target.value) <= 9 ? cardMonthText.textContent=`0${cardMonthValue}` : cardMonthText.textContent=`${cardMonthValue}` 
     if(cardMonthValue === ""){
         cardMonthText.textContent = "12"
+        cardMonthInput.style = null
+        cardMonthInput.classList.remove("animate-shake")
     } else if(cardMonthValue !== ""){
         cardMonthBlankErrText.classList.add("hidden")
+        cardMonthInput.style = null
     }
 
     getCardDetails()
@@ -177,12 +186,13 @@ function cardYearInputFunc(e) {
     parseFloat(cardYearValue) >= currYearValue ? cardYearText.textContent = `${e.target.value}` : cardYearText.textContent = `22`
   }
 
-  !cardYearRegPattern.test(cardYearValue) ? (cardYearInput.style.border="1px solid red", cardYearErrtext.classList.remove("hidden")) : (cardYearInput.style.border = null, cardYearErrtext.classList.add("hidden"))
+  !cardYearRegPattern.test(cardYearValue) ? (cardYearInput.style.border="1px solid red", cardYearErrtext.classList.remove("hidden"), cardYearInput.classList.add("animate-shake")) : (cardYearInput.style.border = null, cardYearErrtext.classList.add("hidden", cardYearInput.classList.remove("animate-shake")))
 
   parseFloat(cardYearValue) >= currYearValue ? cardYearErrtext2.classList.add("hidden") : cardYearErrtext2.classList.remove("hidden")
 
   if(cardYearValue === ""){
     cardYearInput.style = null
+    cardYearInput.classList.remove("animate-shake")
     cardYearErrtext.classList.add("hidden")
     cardYearErrtext2.classList.add("hidden")
   } else if(cardYearValue !== ""){
@@ -201,14 +211,14 @@ e.preventDefault()
 getCardDetails()
 
 
-cardNameValue === "" ? cardNameBlankErrText.classList.remove("hidden") : cardNameBlankErrText.classList.add("hidden")
-cardNumValue === "" ? cardNumberBlankErrText.classList.remove("hidden") : cardNumberBlankErrText.classList.add("hidden")
-cardMonthValue === "" ? cardMonthBlankErrText.classList.remove("hidden") : cardMonthBlankErrText.classList.add("hidden")
-cardYearValue === "" ? cardYearBlankErrText.classList.remove("hidden") : cardYearBlankErrText.classList.add("hidden")
-cardCvvValue === "" ? cvvBlankErrText.classList.remove("hidden") : cvvBlankErrText.classList.add("hidden")
+cardNameValue === "" ? (cardNameBlankErrText.classList.remove("hidden"),cardNameInput.classList.add("animate-shake"),cardNameInput.style.border="1px solid red") : (cardNameBlankErrText.classList.add("hidden"),cardNameInput.classList.remove("animate-shake"))
+cardNumValue === "" ? (cardNumberBlankErrText.classList.remove("hidden"),cardNumberInput.classList.add("animate-shake"),cardNumberInput.style.border="1px solid red") : (cardNumberBlankErrText.classList.add("hidden"),cardNumberInput.classList.remove("animate-shake"))
+cardMonthValue === "" ? (cardMonthBlankErrText.classList.remove("hidden"), cardMonthInput.classList.add("animate-shake"),cardMonthInput.style.border="1px solid red") : (cardMonthBlankErrText.classList.add("hidden"),cardMonthInput.style.border="")
+cardYearValue === "" ? (cardYearBlankErrText.classList.remove("hidden"),cardYearInput.classList.add("animate-shake"),cardYearInput.style.border="1px solid red") : cardYearBlankErrText.classList.add("hidden")
+cardCvvValue === "" ? (cvvBlankErrText.classList.remove("hidden"),cvvTextInput.classList.add("animate-shake"),cvvTextInput.style.border="1px solid red") : cvvBlankErrText.classList.add("hidden")
 
 
-if(cardNameValue !== "" && cardNumValue !== "" && cardMonthValue !== "" && cardYearValue !== "" && cardCvvValue !== ""){
+if(cardNameValue !== "" && cardNumValue !== "" && cardMonthValue !== "" && cardYearValue !== "" && cardCvvValue !== "" && cvvPattern.test(cardCvvValue) && cardYearRegPattern.test(cardYearValue) && regNamePattern.test(cardNameValue)){
     formContainer.classList.add("hidden")
     completedFormModal.classList.remove("hidden")
 }
