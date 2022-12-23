@@ -1,6 +1,9 @@
 import './style.css'
 import masterCardImage from './Assests/icons8-mastercard-logo-48.png'
-
+import visaCardImage from './Assests/icons8-visa-48.png'
+import discoverCardImage from './Assests/icons8-discover-card-48.png'
+import dinersClubCardImage from './Assests/icons8-diners-club-48.png'
+import AmexCardImage from './Assests/icons8-american-express-48.png'
 
 
 const cardNumberText = document.querySelector("#card-num")
@@ -72,10 +75,10 @@ var cleave = new Cleave('#card-number-input', {
     creditCard: true,
     onCreditCardTypeChanged: function (type) {
         type === "mastercard" ? (masterCardLogo.classList.remove("hidden"), (cardLogo.src=masterCardImage)) : (masterCardLogo.classList.add("hidden"), (cardLogo.src="../Assests/card-logo.svg"))
-        type === "visa" ? (visaLogo.classList.remove("hidden"), (cardLogo.src="/Assests/icons8-visa-48.png")) : visaLogo.classList.add("hidden")
-        type === "discover" ? (discoverLogo.classList.remove("hidden"), (cardLogo.src="/Assests/icons8-discover-card-48.png")) : discoverLogo.classList.add("hidden")
-        type === "amex" ? (amexLogo.classList.remove("hidden"), (cardLogo.src="/Assests/icons8-american-express-48.png")) : amexLogo.classList.add("hidden")
-        type === "diners" ? (dinerLogo.classList.remove("hidden"), (cardLogo.src="/Assests/icons8-diners-club-48.png")) : dinerLogo.classList.add("hidden")
+        type === "visa" ? (visaLogo.classList.remove("hidden"), (cardLogo.src=visaCardImage)) : visaLogo.classList.add("hidden")
+        type === "discover" ? (discoverLogo.classList.remove("hidden"), (cardLogo.src=discoverCardImage)) : discoverLogo.classList.add("hidden")
+        type === "amex" ? (amexLogo.classList.remove("hidden"), (cardLogo.src=amexLogo)) : amexLogo.classList.add("hidden")
+        type === "diners" ? (dinerLogo.classList.remove("hidden"), (cardLogo.src=dinerLogo)) : dinerLogo.classList.add("hidden")
     }
 })
 
