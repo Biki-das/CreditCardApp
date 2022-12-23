@@ -84,7 +84,6 @@ var cleave = new Cleave("#card-month-input", {
 
 
 
-
 function cardNumInputFunc(e) {
 cardNumValue = e.target.value
 cardNumberText.textContent = cardNumValue
@@ -102,7 +101,6 @@ getCardDetails()
 function cardNameInputFunc(e){
 
 cardNameValue = e.target.value
-
 
 if(regNamePattern.test(e.target.value)){
     cardNameText.textContent = cardNameValue.toUpperCase()
