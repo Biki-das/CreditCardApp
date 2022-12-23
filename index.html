@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <title>CreditApp</title>
+  </head>
+  <body>
+    <div class="md:h-screen w-full">
+      <main class="md:flex">
+        <section class="w-full md:basis-[30rem] bg-cover h-[15rem] md:h-screen bg-no-repeat bg-[url('../Assests/bg-main-mobile.png')] md:bg-[url('../Assests/bg-main-desktop.png')]">
+        </section>
+        <section class="md:basis-full overflow-hidden">
+         <div class="md:h-[33.75rem] -translate-y-[80%] md:-translate-y-0 absolute md:top-0 md:bottom-0 md:my-auto container w-[90%] left-0 right-0 mx-auto z-10"> 
+          <div id="card-front" class="absolute z-20 md:static top-[10px]">
+            <img id="card-logo" class="absolute top-[2rem] left-[2rem] h-[30px] md:h-[60px]"  src="./Assests/card-logo.svg"/>
+            <p id="card-num" class="text-[16px] lg:text-[30px] text-white absolute left-[2rem] top-[90px] lg:top-[140px] tracking-[3px] md:tracking-normal">0000 0000 0000 0000</p>
+            <div class="absolute left-[2rem] flex top-[120px] lg:top-[206px] justify-between w-[245px] lg:w-[385px]">
+              <p id="card-name" class="text-[13px] md:text-[15px] text-white">Jane Appleseed</p>
+              <div class="flex">
+              <p id="card-expiry-month" class="text-[13px] md:text-[15px] text-white">12</p>
+              <p class="text-[13px] md:text-[15px] text-white">/</p>
+              <p id="card-expiry-year" class="text-[13px] md:text-[15px] text-white">22</p>
+              </div>
+            </div>
+            <img class="mx-auto md:mx-0 h-[160px] w-[286px] lg:w-[450px] lg:h-[250px]" src="./Assests/bg-card-front.png"/>
+          </div>
+          <div id="card-back" class="-translate-y-[50%] translate-x-[5%] md:translate-x-[5%] md:translate-y-[40px]">
+            <p class="absolute left-[253px] md:left-[234px] top-[75px] lg:top-[110px] lg:left-[360px] text-white text-[10px] lg:text-[14px]" id="card-cvv-num">000</p>
+            <img class="mx-auto md:mx-0 h-[160px] w-[286px] lg:w-[450px] lg:h-[250px]" src="./Assests/bg-card-back.png"/>
+          </div>
+          </div>
+          <div id="form-container" class="absolute z-[20] translate-y-[20%] md:translate-y-0 container w-[90%] md:left-[400px] left-0 right-0 mx-auto h-[360px] md:h-[420px] md:w-[440px] md:mt-[200px]">
+             <form id="form">
+              <div class="h-[80px]">
+              <label class="text-[10px] text-veryDarkViolet tracking-widest">CARDHOLDER NAME</label>
+              <input id="card-name-input" placeholder="e.g. Jane Appleseed" class="placeholder:opacity-40 transition-[border] duration-[0.3s]  focus:ring-0 block focus:border-purple-700 hover:border-purple-700 border-[#e5e5e5] md:w-[340px] w-[98%] rounded-lg cursor-pointer mt-[12px] text-veryDarkViolet" type="text"/>
+              <p id="card-name-err-text" class="text-[10px] mt-[.2rem] text-red-500 hidden">Name can't have Special Characters or Number</p>
+              <p id="card-name-blank-error" class="text-[10px] mt-[.2rem] text-red-500 hidden">Cant' be Blank</p>
+              </div>
+             <div class="mt-[1rem] h-[80px] relative">
+              <img id="mastercard-logo" class="absolute right-2 md:right-28 hidden top-8 bottom-0 my-auto transition-[scale] duration-[0.3s] scale-1" src="./Assests/icons8-mastercard-logo-48.png"/>
+              <img id="visa-logo" class="absolute right-2 md:right-28 hidden top-8 bottom-0 my-auto" src="./Assests/icons8-visa-48.png"/>
+              <img id="discover-logo" class="absolute right-2 md:right-28 hidden top-8 bottom-0 my-auto" src="./Assests/icons8-discover-card-48.png"/>
+              <img id="amex-logo" class="absolute right-2 md:right-28 hidden top-8 bottom-0 my-auto" src="./Assests/icons8-american-express-48.png"/>
+              <img id="diner-logo" class="absolute right-2 md:right-28 hidden top-8 bottom-0 my-auto" src="./Assests/icons8-diners-club-48.png"/>
+              
+
+
+              <label class="text-[10px] text-veryDarkViolet tracking-widest">CARD NUMBER</label>
+              <input id="card-number-input" placeholder="e.g. 1234 5678 9123 000" class="placeholder:opacity-40 transition-[border] duration-[0.3s]  focus:ring-0 block focus:border-purple-700 hover:border-purple-700 border-[#e5e5e5] md:w-[340px] w-[98%]  rounded-lg cursor-pointer mt-[12px] text-veryDarkViolet" type="text"/>
+              <p id="card-num-blank-error" class="text-[10px] mt-[.2rem] text-red-500 hidden">Can't be Blank</p>
+             </div>
+             <div class="mt-[1rem]">
+              <label class="text-[10px] text-veryDarkViolet tracking-widest">EXP. DATE (MM/YY)</label>
+              <div class="flex gap-x-[20px]">
+              <div class="flex gap-x-[10px]">
+              <div>
+              <input id="card-month-input" placeholder="MM" class="placeholder:opacity-40 block h-[45px] w-[70px] transition-[border] duration-[0.3s] focus:ring-0 focus:border-purple-700 hover:border-purple-700 border-[#e5e5e5] cursor-pointer text-veryDarkViolet rounded-lg p-2" type="number">
+              <p id="card-month-blank-error" class="text-[10px] mt-[.2rem] text-red-500 hidden">Can't be Blank</p>
+              </div>
+              <div>
+              <input id="card-year-input" placeholder="YY" class="placeholder:opacity-40 block h-[45px] w-[70px] transition-[border] duration-[0.3s] focus:ring-0 focus:border-purple-700 hover:border-purple-700 border-[#e5e5e5] cursor-pointer text-veryDarkViolet rounded-lg p-2"  type="number">
+              <p id="year-err-text" class="text-[10px] text-red-500 hidden">Year is not a valid one</p>
+              <p id="year-err-2-text" class="text-[10px] text-red-500 hidden">Year cannot be <br>less than the <br>current year</p>
+              <p id="card-year-blank-error" class="text-[10px] mt-[.2rem] text-red-500 hidden">Can't be Blank</p>
+              </div>
+              </div>
+              <div class="h-[30px]">
+              <input id="card-cvv-input" placeholder="e.g. 123" class="placeholder:opacity-40 block h-[45px] w-[170px] transition-[border] duration-[0.3s] focus:ring-0 focus:border-purple-700 hover:border-purple-700 border-[#e5e5e5] cursor-pointer text-veryDarkViolet rounded-lg" type="number" >
+               <p id="cvv-err-text" class="text-[10px] text-red-500 hidden">Cvv must be 3 digits</p>
+               <p id="cvv-blank-error" class="text-[10px] mt-[.2rem] text-red-500 hidden">Can't be Blank</p>
+              </div>
+            </div>
+             </div>
+             <div id="confirm-btn" class="bg-veryDarkViolet w-[98%] md:w-[340px] h-[50px] mt-[25px] md:mt-[50px] rounded-lg flex justify-center items-center cursor-pointer">
+              <button class="text-white">Confirm</button>
+             </div>
+             </form>
+          </div>
+          <div id="Form-complete-modal" class=" w-[90%] md:w-[400px] translate-y-[20%] md:translate-y-[0%] md:absolute md:translate-x-[100%] left-0 right-0 md:left-auto md:right-auto mx-auto md:mx-0 top-0 bottom-0 my-auto h-[330px] z-20 hidden">
+            <img src="./Assests/icon-complete.svg" class="mx-auto animate-slidedown"/>
+            <p class="text-[22px] text-center text-veryDarkViolet tracking-widest mt-[30px]">THANK YOU!</p>
+            <p class="text-gray-500 text-center text-[12px] mt-[30px] tracking-widest">We've added your card details</p>
+            <div id="continue-btn" class="bg-veryDarkViolet w-[98%] mx-auto md:w-[90%] h-[50px] mt-[25px] md:mt-[50px] rounded-lg flex justify-center items-center cursor-pointer">
+              <button class="text-white">Continue</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js" integrity="sha512-KaIyHb30iXTXfGyI9cyKFUIRSSuekJt6/vqXtyQKhQP6ozZEGY8nOtRS6fExqE4+RbYHus2yGyYg1BrqxzV6YA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+</html>
