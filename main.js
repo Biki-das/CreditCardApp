@@ -114,7 +114,6 @@ cardNameValue = e.target.value
 if(regNamePattern.test(e.target.value)){
     cardNameText.textContent = cardNameValue.toUpperCase()
     cardNameErrText.classList.add("hidden")
-
 }else{
     cardNameErrText.classList.remove("hidden")
 }
