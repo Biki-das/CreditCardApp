@@ -69,7 +69,9 @@ cardYearInput.addEventListener("input",cardYearInputFunc)
 formSubBtn.addEventListener("click",formSubmit)
 continueBtn.addEventListener("click",formReset)
 
-
+window.addEventListener("load", () => {
+    form.reset()
+})
 
 var cleave = new Cleave('#card-number-input', {
     creditCard: true,
