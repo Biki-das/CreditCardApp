@@ -142,14 +142,23 @@ getCardDetails()
 
 function cardCvvInputFunc(e){
    cardCvvValue = e.target.value 
+   if(cardCvvValue.length > 3){
  if(cvvPattern.test(cardCvvValue)){
     cvvText.textContent = cardCvvValue
     cvvErrText.classList.add("hidden")
  }else{
     cvvErrText.classList.remove("hidden")
  }
+}
 
- !cvvPattern.test(e.target.value) ? (cvvTextInput.style.border = "1px solid red", cvvTextInput.classList.add("animate-shake")) : (cvvTextInput.style.border = "", cvvTextInput.classList.remove("animate-shake"))
+if(cardCvvValue.length > 3){
+    !cvvPattern.test(e.target.value) ? (cvvTextInput.style.border = "1px solid red", cvvTextInput.classList.add("animate-shake")) : (cvvTextInput.style.border = "", cvvTextInput.classList.remove("animate-shake"))
+} else {
+    cvvTextInput.style.border = null
+    cvvTextInput.classList.remove("animate-shake")
+    cvvErrText.classList.add("hidden")
+}
+
  
  if(cardCvvValue === ""){
     cvvText.textContent = "000"
@@ -186,11 +195,14 @@ function cardYearInputFunc(e) {
   if(cardYearRegPattern.test(cardYearValue)){
     parseFloat(cardYearValue) >= currYearValue ? cardYearText.textContent = `${e.target.value}` : cardYearText.textContent = `22`
   }
+  
+  if(cardYearValue.length > 2){
+  !cardYearRegPattern.test(cardYearValue) ? (cardYearInput.style.border="1px solid red", cardYearErrtext.classList.remove("hidden"), cardYearInput.classList.add("animate-shake")) : (cardYearInput.style.border = null, cardYearErrtext.classList.add("hidden", cardYearInput.classList.remove("animate-shake"))) 
+  }
 
-  !cardYearRegPattern.test(cardYearValue) ? (cardYearInput.style.border="1px solid red", cardYearErrtext.classList.remove("hidden"), cardYearInput.classList.add("animate-shake")) : (cardYearInput.style.border = null, cardYearErrtext.classList.add("hidden", cardYearInput.classList.remove("animate-shake")))
-
-  parseFloat(cardYearValue) >= currYearValue ? cardYearErrtext2.classList.add("hidden") : cardYearErrtext2.classList.remove("hidden")
-
+  if(cardYearValue.length == 2){
+  parseFloat(cardYearValue) >= currYearValue ? (cardYearErrtext2.classList.add("hidden"), cardYearInput.classList.remove("animate-shake"), cardYearInput.style.border = null) : (cardYearErrtext2.classList.remove("hidden"), cardYearInput.classList.add("animate-shake"), cardYearInput.style.border = "1px solid red")
+  }
   if(cardYearValue === ""){
     cardYearInput.style = null
     cardYearInput.classList.remove("animate-shake")
